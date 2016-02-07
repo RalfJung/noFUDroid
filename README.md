@@ -12,7 +12,7 @@ Right now, KitKat (4.4) and Lollipop (5) have been tested.
 Contributions for other versions, and other forms of FUD, are welcome.
 
 
-## Building:
+## Building
 
 You will need version 54 or later of the Xposed Framework.
 Put the `XposedBridgeApi.jar` into the folder `app/libs/`.
