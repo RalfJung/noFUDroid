@@ -1,4 +1,4 @@
-package it.skarafaz.xposed.nwmonblocker;
+package de.ralfj.xposed.nofudroid;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodReplacement;
