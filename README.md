@@ -7,7 +7,9 @@ noFUDroid
 
 This is asimple Xposed Module which gets rid of the annoying *Network may be monitored* warning 
 triggered by adding a CA cert to the key store.
-It is a fork of the original [NetworkMonitoredBlocker](https://github.com/Skarafaz/NetworkMonitoredBlocker) that also supports newer versions of Android.
+It is a fork of the original [NetworkMonitoredBlocker](https://github.com/Skarafaz/NetworkMonitoredBlocker), adding support for newer versions of Android.
+Right now, KitKat (4.4) and Lollipop (5) have been tested.
+Contributions for other versions, and other forms of FUD, are welcome.
 
 
 ## Building:
