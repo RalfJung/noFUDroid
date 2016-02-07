@@ -1,8 +1,8 @@
-Network Monitored Blocker (KitKat)
-=======================
+Network Monitored Blocker
+=========================
 
 Simple [Xposed Module](http://repo.xposed.info/module/it.skarafaz.xposed.nwmonblocker) which gets rid of the annoying *Network may be monitored* warning 
-triggered by adding a CA cert to the key store in **KitKat**.
+triggered by adding a CA cert to the key store.
 
 ## Notes:
 * Notification removed.
@@ -10,5 +10,4 @@ triggered by adding a CA cert to the key store in **KitKat**.
 * Warning icon next to *Security* settings menu removed.
 
 ## Requirements:
-* Android **KitKat** (yes, I said **KitKat** God!).
 * Xposed Framework v54+.

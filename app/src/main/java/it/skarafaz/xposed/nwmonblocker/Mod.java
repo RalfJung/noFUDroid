@@ -1,35 +1,23 @@
 package it.skarafaz.xposed.nwmonblocker;
 
-import de.robv.android.xposed.IXposedHookLoadPackage;
+import de.robv.android.xposed.IXposedHookZygoteInit;
 import de.robv.android.xposed.XC_MethodReplacement;
-import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
-import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
-public class Mod implements IXposedHookLoadPackage {
-    // Just a helper function, useful to figure out package names
-    private void tryToLoad(String className, ClassLoader loader) {
-        try {
-            XposedHelpers.findClass(className, loader);
-            XposedBridge.log("  Found " + className);
-        }
-        catch (Throwable t) {}
-    }
+/* "Network May Be Monitored" blocker for Android 4.4. */
 
-    public void handleLoadPackage(LoadPackageParam lpparam) throws Throwable {
-        if (!lpparam.packageName.equals("android"))
-            return;
-        
-        final Class<?> userHandle = XposedHelpers.findClass("android.os.UserHandle", lpparam.classLoader);
-        final Class<?> notifyTask = XposedHelpers.findClass("com.android.server.devicepolicy.DevicePolicyManagerService$MonitoringCertNotificationTask", lpparam.classLoader);
-        
-        XposedHelpers.findAndHookMethod(notifyTask, "manageNotification", userHandle,
-            new XC_MethodReplacement() {
-                @Override
-                protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
-                    XposedBridge.log("Not showing FUD notification");
-                    return null;
-                }
+public class Mod implements IXposedHookZygoteInit {
+    private static final String CLASS_DEVICE_POLICY_MANAGER = "android.app.admin.DevicePolicyManager";
+
+    @Override
+    public void initZygote(StartupParam startupParam) throws Throwable {
+        final Class<?> devicePolicyManager = XposedHelpers.findClass(CLASS_DEVICE_POLICY_MANAGER, null);
+
+        XposedHelpers.findAndHookMethod(devicePolicyManager, "hasAnyCaCertsInstalled", new XC_MethodReplacement() {
+            @Override
+            protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+                return false;
+            }
         });
     }
 }
