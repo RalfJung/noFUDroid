@@ -5,7 +5,7 @@ noFUDroid
 
 -- [Wikipedia on Fear, uncertainty and doubt](https://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt)
 
-This is asimple Xposed Module which gets rid of the annoying *Network may be monitored* warning 
+This is a simple Xposed Module which gets rid of the annoying *Network may be monitored* warning 
 triggered by adding a CA cert to the key store.
 It is a fork of the original [NetworkMonitoredBlocker](https://github.com/Skarafaz/NetworkMonitoredBlocker), adding support for newer versions of Android.
 Right now, KitKat (4.4) and Lollipop (5) have been tested.
