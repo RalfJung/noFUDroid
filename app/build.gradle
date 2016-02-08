@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.2'
 
     defaultConfig {
-        applicationId "it.skarafaz.xposed.nwmonblocker"
+        applicationId "de.ralfj.xposed.nofudroid"
         minSdkVersion 19
         maxSdkVersion 19
         targetSdkVersion 21
